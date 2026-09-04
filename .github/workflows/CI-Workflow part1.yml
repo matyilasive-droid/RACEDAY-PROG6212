@@ -28,4 +28,4 @@ jobs:
 
       - name: Checking that CREATE TABLE exists
         run: |
-          grep -qi "CREATE TABLE" "docs/Part 1.sql" || exit 1
+          grep -qi "CREATE TABLE" "docs/SCHEMA.sql" || exit 1
