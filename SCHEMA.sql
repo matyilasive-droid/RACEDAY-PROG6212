@@ -110,3 +110,20 @@ VALUES
     (N'Fun Run', N'Community running events designed for recreational participation.');
 GO
 
+
+INSERT INTO Users
+    (FirstName, LastName, Email, PasswordHash, Role)
+VALUES
+    (N'Lerato', N'Mokoena', 'lerato.mokoena@raceday.co.za',
+     'HASHED_PASSWORD_ORGANISER_001', N'Organiser'),
+
+    (N'Jason', N'Naidoo', 'jason.naidoo@raceday.co.za',
+     'HASHED_PASSWORD_ORGANISER_002', N'Organiser'),
+
+    (N'Nomsa', N'Dlamini', 'nomsa.dlamini@example.com',
+     'HASHED_PASSWORD_PARTICIPANT_001', N'Participant'),
+
+    (N'Thabo', N'Van Wyk', 'thabo.vanwyk@example.com',
+     'HASHED_PASSWORD_PARTICIPANT_002', N'Participant');
+GO
+
