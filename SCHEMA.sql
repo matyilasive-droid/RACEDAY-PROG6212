@@ -143,3 +143,16 @@ VALUES
      N'KwaZulu-Natal', N'Upcoming');
 GO
 
+INSERT INTO Categories
+    (EventID, Name, DistanceKm, MaxParticipant, EntryFee)
+VALUES
+    (1, N'10 km Open', 10.00, 500, 180.00),
+    (1, N'5 km Social Run', 5.00, 800, 100.00),
+
+    (2, N'21 km Trail Challenge', 21.00, 300, 350.00),
+    (2, N'10 km Trail Run', 10.00, 500, 220.00),
+
+    (3, N'10 km Beach Run', 10.00, 600, 150.00),
+    (3, N'5 km Family Fun Run', 5.00, 1000, 80.00);
+GO
+
