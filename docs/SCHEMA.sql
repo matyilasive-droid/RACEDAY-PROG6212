@@ -83,6 +83,34 @@ CREATE TABLE Categories
         CHECK (EntryFee >= 0)
 );
 
+CREATE TABLE Enrolments
+(
+    EnrolmentID INT IDENTITY(1,1) NOT NULL,
+    UserID INT NOT NULL,
+    CategoryID INT NOT NULL,
+    EnrolmentDate DATETIME2(0) NOT NULL
+        CONSTRAINT DF_Enrolments_EnrolmentDate DEFAULT (SYSDATETIME()),
+    Status VARCHAR(30) NOT NULL
+        CONSTRAINT DF_Enrolments_Status DEFAULT ('Registered'),
+
+    CONSTRAINT PK_Enrolments PRIMARY KEY (EnrolmentID),
+
+    CONSTRAINT FK_Enrolments_User
+        FOREIGN KEY (UserID)
+        REFERENCES Users(UserID),
+
+    CONSTRAINT FK_Enrolments_Category
+        FOREIGN KEY (CategoryID)
+        REFERENCES Categories(CategoryID),
+
+    CONSTRAINT UQ_Enrolments_User_Category UNIQUE (UserID, CategoryID),
+
+    CONSTRAINT CK_Enrolments_Status
+        CHECK (Status IN ('Registered', 'Confirmed', 'Completed', 'Cancelled'))
+);
+
+
+
 CREATE TABLE Result
 (
     ResultID INT IDENTITY(1,1) NOT NULL,
