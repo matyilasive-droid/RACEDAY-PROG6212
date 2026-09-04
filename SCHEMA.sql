@@ -167,4 +167,11 @@ VALUES
     (4, 6, '2026-09-03 11:30:00', 'Registered');
 GO
 
+INSERT INTO Result
+    (Enrolment, FinishTime, Position, RecordedAt)
+VALUES
+    (1, '00:48:32', 1, '2026-09-04 07:45:00'),
+    (2, '00:52:18', 2, '2026-09-04 07:46:00');
+GO
+
 
