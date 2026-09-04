@@ -82,4 +82,24 @@ CREATE TABLE Categories
         CHECK (EntryFee >= 0)
 );
 
+CREATE TABLE Result
+(
+    ResultID INT IDENTITY(1,1) NOT NULL,
+    Enrolment INT NOT NULL,
+    FinishTime TIME(0) NOT NULL,
+    Position INT NOT NULL,
+    RecordedAt DATETIME2(0) NOT NULL
+        CONSTRAINT DF_Result_RecordedAt DEFAULT (SYSDATETIME()),
+
+    CONSTRAINT PK_Result PRIMARY KEY (ResultID),
+
+    CONSTRAINT FK_Result_Enrolment
+        FOREIGN KEY (Enrolment)
+        REFERENCES Enrolments(EnrolmentID),
+
+    CONSTRAINT UQ_Result_Enrolment UNIQUE (Enrolment),
+
+    CONSTRAINT CK_Result_Position
+        CHECK (Position > 0)
+);
 
