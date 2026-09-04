@@ -187,6 +187,22 @@ UNION ALL
 SELECT 'Result', COUNT(*) FROM Result;
 GO
 
+SELECT
+    e.EventID,
+    e.EventName,
+    e.EventDate,
+    e.Location,
+    e.Province,
+    c.CategoryID,
+    c.Name AS CategoryName,
+    c.DistanceKm,
+    c.EntryFee
+FROM dbo.Event AS e
+INNER JOIN dbo.Categories AS c
+    ON c.EventID = e.EventID
+ORDER BY e.EventID, c.CategoryID;
+GO
+
 
 
 
