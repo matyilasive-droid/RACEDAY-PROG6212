@@ -217,5 +217,21 @@ CREATE INDEX IX_Categories_EventID ON Categories(EventID);
 CREATE INDEX IX_Enrolments_UserID ON Enrolments(UserID);
 GO
 
+-- Create view for simplified reporting
+CREATE VIEW vw_EventCategories AS
+SELECT 
+    e.EventID,
+    e.EventName,
+    e.EventDate,
+    e.Location,
+    e.Province,
+    c.CategoryID,
+    c.Name AS CategoryName,
+    c.DistanceKm,
+    c.EntryFee
+FROM dbo.Event AS e
+INNER JOIN dbo.Categories AS c
+    ON c.EventID = e.EventID;
+GO
 
 
