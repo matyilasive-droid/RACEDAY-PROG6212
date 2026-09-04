@@ -203,6 +203,14 @@ INNER JOIN dbo.Categories AS c
 ORDER BY e.EventID, c.CategoryID;
 GO
 
+SELECT * FROM Users;
+SELECT * FROM EventTypes;
+SELECT * FROM Event;
+SELECT * FROM Categories;
+SELECT * FROM Enrolments;
+SELECT * FROM Result;
+GO
+
 
 
 
