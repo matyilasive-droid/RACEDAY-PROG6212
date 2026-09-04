@@ -174,4 +174,19 @@ VALUES
     (2, '00:52:18', 2, '2026-09-04 07:46:00');
 GO
 
+SELECT 'Users' AS TableName, COUNT(*) AS RowCount FROM Users
+UNION ALL
+SELECT 'EventTypes', COUNT(*) FROM EventTypes
+UNION ALL
+SELECT 'Event', COUNT(*) FROM Event
+UNION ALL
+SELECT 'Categories', COUNT(*) FROM Categories
+UNION ALL
+SELECT 'Enrolments', COUNT(*) FROM Enrolments
+UNION ALL
+SELECT 'Result', COUNT(*) FROM Result;
+GO
+
+
+
 
