@@ -21,7 +21,7 @@ jobs:
 
       - name: Checking the required files
         run: |
-          test -f "docs/API Plan).pdf" || exit 1
+          test -f "docs/API Plan.pdf" || exit 1
           test -f "docs/RACEDAY ERD.png" || exit 1
           test -f "docs/SCHEMA.sql" || exit 1
           test -f "README.md" || exit 1
