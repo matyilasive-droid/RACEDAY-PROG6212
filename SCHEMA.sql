@@ -15,7 +15,7 @@ CREATE TABLE Users(
     CONSTRAINT UQ_Users_Email UNIQUE (Email)
 );
 
-CREATE TABLE dbo.EventTypes
+CREATE TABLE EventTypes
 (
     EventTypeID INT IDENTITY(1,1) NOT NULL,
     EventTypeName NVARCHAR(100) NOT NULL,
@@ -24,3 +24,35 @@ CREATE TABLE dbo.EventTypes
     CONSTRAINT PK_EventTypes PRIMARY KEY (EventTypeID),
     CONSTRAINT UQ_EventTypes_EventTypeName UNIQUE (EventTypeName)
 );
+
+
+CREATE TABLE Event
+(
+    EventID INT IDENTITY(1,1) NOT NULL,
+    Organised INT NOT NULL,
+    EventName VARCHAR(150) NOT NULL,
+    EventType NVARCHAR(100) NOT NULL,
+    EventDate DATE NOT NULL,
+    Location VARCHAR(200) NOT NULL,
+    CreatedAt DATETIME2(0) NOT NULL
+        CONSTRAINT DF_Event_CreatedAt DEFAULT (SYSDATETIME()),
+    Province NVARCHAR(50) NOT NULL,
+    Status NVARCHAR(30) NOT NULL
+        CONSTRAINT DF_Event_Status DEFAULT (N'Upcoming'),
+
+    CONSTRAINT PK_Event PRIMARY KEY (EventID),
+
+    CONSTRAINT FK_Event_Organiser
+        FOREIGN KEY (Organised)
+        REFERENCES dbo.Users(UserID),
+
+    CONSTRAINT FK_Event_EventType
+        FOREIGN KEY (EventType)
+        REFERENCES EventTypes(EventTypeName),
+
+    CONSTRAINT CK_Event_Status
+        CHECK (Status IN (N'Upcoming', N'Open', N'Closed', N'Completed', N'Cancelled'))
+);
+
+
+
