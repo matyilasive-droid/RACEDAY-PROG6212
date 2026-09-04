@@ -14,3 +14,13 @@ CREATE TABLE Users(
     CONSTRAINT PK_Users PRIMARY KEY (UserID),
     CONSTRAINT UQ_Users_Email UNIQUE (Email)
 );
+
+CREATE TABLE dbo.EventTypes
+(
+    EventTypeID INT IDENTITY(1,1) NOT NULL,
+    EventTypeName NVARCHAR(100) NOT NULL,
+    Description NVARCHAR(500) NULL,
+
+    CONSTRAINT PK_EventTypes PRIMARY KEY (EventTypeID),
+    CONSTRAINT UQ_EventTypes_EventTypeName UNIQUE (EventTypeName)
+);
