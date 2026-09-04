@@ -127,3 +127,19 @@ VALUES
      'HASHED_PASSWORD_PARTICIPANT_002', N'Participant');
 GO
 
+INSERT INTO Event
+    (Organised, EventName, EventType, EventDate, Location, Province, Status)
+VALUES
+    (1, 'Johannesburg City 10K', N'Road Race',
+     '2026-10-18', 'Mary Fitzgerald Square, Johannesburg',
+     N'Gauteng', N'Open'),
+
+    (2, 'Cape Winelands Trail Challenge', N'Trail Run',
+     '2026-11-07', 'Paarl Mountain Nature Reserve, Paarl',
+     N'Western Cape', N'Upcoming'),
+
+    (1, 'Durban Beach Fun Run', N'Fun Run',
+     '2026-12-06', 'Moses Mabhida Stadium, Durban',
+     N'KwaZulu-Natal', N'Upcoming');
+GO
+
