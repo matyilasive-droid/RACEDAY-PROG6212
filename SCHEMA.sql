@@ -1,4 +1,5 @@
 CREATE DATABASE RaceDay_PROG6212;
+
 CREATE TABLE Users(
     UserID INT IDENTITY(1,1) NOT NULL,
     FirstName NVARCHAR(50) NOT NULL,
@@ -211,6 +212,10 @@ SELECT * FROM Enrolments;
 SELECT * FROM Result;
 GO
 
+CREATE INDEX IX_Event_EventDate ON Event(EventDate);
+CREATE INDEX IX_Categories_EventID ON Categories(EventID);
+CREATE INDEX IX_Enrolments_UserID ON Enrolments(UserID);
+GO
 
 
 
