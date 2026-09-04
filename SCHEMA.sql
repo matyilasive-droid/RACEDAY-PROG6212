@@ -81,3 +81,5 @@ CREATE TABLE Categories
     CONSTRAINT CK_Categories_EntryFee
         CHECK (EntryFee >= 0)
 );
+
+
