@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Checking Docs folder
+        run: |
+          test -d "docs" || exit 1
+
+      - name: Checking the required files
+        run: |
+          test -f "docs/API Endpoint Plan(Updated).pdf" || exit 1
+          test -f "docs/ERDDIAGRAM.drawio.png" || exit 1
+          test -f "docs/Part 1.sql" || exit 1
+          test -f "README.md" || exit 1
+
+      - name: Checking that CREATE TABLE exists
+        run: |
+          grep -qi "CREATE TABLE" "docs/Part 1.sql" || exit 1
