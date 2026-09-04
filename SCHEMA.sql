@@ -54,5 +54,34 @@ CREATE TABLE Event
         CHECK (Status IN (N'Upcoming', N'Open', N'Closed', N'Completed', N'Cancelled'))
 );
 
+CREATE TABLE Categories
+(
+    CategoryID INT IDENTITY(1,1) NOT NULL,
+    EventID INT NOT NULL,
+    Name NVARCHAR(100) NOT NULL,
+    DistanceKm DECIMAL(6,2) NOT NULL,
+    MaxParticipant INT NULL,
+    EntryFee DECIMAL(10,2) NOT NULL
+        CONSTRAINT DF_Categories_EntryFee DEFAULT (0.00),
+
+    CONSTRAINT PK_Categories PRIMARY KEY (CategoryID),
+
+    CONSTRAINT FK_Categories_Event
+        FOREIGN KEY (EventID)
+        REFERENCES dbo.Event(EventID),
+
+    CONSTRAINT UQ_Categories_Event_Name UNIQUE (EventID, Name),
+
+    CONSTRAINT CK_Categories_DistanceKm
+        CHECK (DistanceKm > 0),
+
+    CONSTRAINT CK_Categories_MaxParticipant
+        CHECK (MaxParticipant IS NULL OR MaxParticipant > 0),
+
+    CONSTRAINT CK_Categories_EntryFee
+        CHECK (EntryFee >= 0)
+);
+
+
 
 
