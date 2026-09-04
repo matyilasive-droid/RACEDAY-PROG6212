@@ -103,3 +103,10 @@ CREATE TABLE Result
         CHECK (Position > 0)
 );
 
+INSERT INTO EventTypes (EventTypeName, Description)
+VALUES
+    (N'Road Race', N'Road-running events held on paved public or private roads.'),
+    (N'Trail Run', N'Off-road running events held on natural trails and paths.'),
+    (N'Fun Run', N'Community running events designed for recreational participation.');
+GO
+
