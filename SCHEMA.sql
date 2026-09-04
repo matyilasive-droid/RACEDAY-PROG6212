@@ -156,3 +156,15 @@ VALUES
     (3, N'5 km Family Fun Run', 5.00, 1000, 80.00);
 GO
 
+INSERT INTO Enrolments
+    (UserID, CategoryID, EnrolmentDate, Status)
+VALUES
+    (3, 1, '2026-09-01 08:30:00', 'Confirmed'),
+    (4, 1, '2026-09-01 09:15:00', 'Confirmed'),
+    (3, 3, '2026-09-02 10:00:00', 'Registered'),
+    (4, 4, '2026-09-02 10:30:00', 'Registered'),
+    (3, 6, '2026-09-03 11:00:00', 'Registered'),
+    (4, 6, '2026-09-03 11:30:00', 'Registered');
+GO
+
+
